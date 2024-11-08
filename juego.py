@@ -123,7 +123,7 @@ def juego():
         imprimir_tablero(tab)
         direccion = leer_direccion()
 
-    print('Chao')
+    print('Chao xxxxxx')
 
 juego()
 
