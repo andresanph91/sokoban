@@ -72,10 +72,11 @@ def mover_robot(tablero, direccion):
         return
 
     if tablero[fila_obj][columna_obj] == board.SPACE:
-        tablero[fila][columna] = board.OBSTA
+        tablero[fila][columna] = board.SPACE
+        
         tablero[fila_obj][columna_obj] = board.ROBOT
     else:
-        print('Movimiento no valido')
+        print('')
 
 
 def win(tablero):
@@ -99,7 +100,7 @@ def leer_direccion():
     direccion = input('Ingrese el movimiento (W/A/S/D) o X para salir: ')
     direccion = direccion.upper()
 
-    if direccion == 'W':
+    if direccion ==   'W':
         return mv.ARRIBA
     elif direccion == 'A':
         return mv.IZQUIERDA

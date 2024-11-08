@@ -1,6 +1,5 @@
-ARRIBA = 'Wsgdfgsdfgdafg'
+ARRIBA = 'W'
 ABAJO = 'S'
 IZQUIERDA = 'A'
 DERECHA = 'D'
-
 EXIT = 'X'
