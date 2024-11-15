@@ -89,7 +89,7 @@ def win(tablero):
 
     return victoria
 
-def leer_direccion():
+def leer_direccion():    
     """
     Lee la dirección del usuario Numpy
 
