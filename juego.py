@@ -72,13 +72,37 @@ def mover_robot(tablero, direccion):
         return
 
     if tablero[fila_obj][columna_obj] == board.SPACE:
-        tablero[fila][columna] = board.SPACE
-        
+        tablero[fila][columna] = board.OBSTA
+
         tablero[fila_obj][columna_obj] = board.ROBOT
     else:
-        print('')
+        print('Movimiento no valido')
 
+def mover_caja(tablero, direccion):
+    fila, columna = buscar_robot(tablero)
+    fila_obj, columna_obj = fila, columna
 
+    if direccion == mv.ARRIBA:
+        fila_obj -= 1 # fila = fila - 1
+    elif direccion == mv.ABAJO:
+        fila_obj += 1
+    elif direccion == mv.IZQUIERDA:
+        columna_obj -= 1
+    elif direccion == mv.DERECHA:
+        columna_obj += 1
+    else:
+        print('No se reconoce la direccion')
+
+    if fila_obj < 0 or columna_obj < 0 or \
+        fila_obj >= len(tablero) or columna_obj >= len(tablero[0]):
+        print('Movimiento no valido')
+        return
+
+    if tablero[fila_obj][columna_obj] == board.SPACE:
+        tablero[fila][columna] = board.OBSTA
+        tablero[fila_obj][columna_obj] = board.ROBOT
+    else:
+        print('Movimiento no valido')
 def win(tablero):
     victoria = True
 
@@ -89,7 +113,7 @@ def win(tablero):
 
     return victoria
 
-def leer_direccion():    
+def leer_direccion():
     """
     Lee la dirección del usuario Numpy
 
@@ -100,7 +124,7 @@ def leer_direccion():
     direccion = input('Ingrese el movimiento (W/A/S/D) o X para salir: ')
     direccion = direccion.upper()
 
-    if direccion ==   'W':
+    if direccion == 'W':
         return mv.ARRIBA
     elif direccion == 'A':
         return mv.IZQUIERDA
@@ -115,7 +139,7 @@ def leer_direccion():
 
 
 def juego():
-    tab = board.tablero
+    tab = board.leer_tablero("nivel_1") 
     imprimir_tablero(tab)
     direccion = leer_direccion()
 
@@ -124,7 +148,62 @@ def juego():
         imprimir_tablero(tab)
         direccion = leer_direccion()
 
-    print('Chao xxxxxx')
+    print('Chao')
 
-juego()
+def manual(idioma):
+    menu_manual={
+        'es':{
+            'desc': ' el juego consiste en algo ',
+            board.ROBOT:'es el robot',
+            board.OBSTA:' es un ostaculo',
+        },
+        'en':{
+            'desc': ' el juego consiste en algo ',
+            board.ROBOT:'this is a pretty robot',
+            board.OBSTA:' this is an awful obtacule',
+        }
+    }
+    for k in menu_manual[idioma]:
+        if k !='desc':
+            print(f'\t{k}-{menu_manual[idioma][k]}')
+            
+        else:
+            print(menu_manual[idioma][k])
+
+def menu():
+    lang=input("indique el idioma(en/es): ")
+    mi_menu={
+
+'es': {
+        '1' :'Iniciar',
+        '2' : 'ver manual del juego ',
+        '3' : 'salir',
+        },
+        'en':{
+            '1' : 'start new game',
+            '2' : 'show manual',
+            '3' : 'Exit'
+            }
+
+    }
+    print("-------------------------------------")
+    for k in mi_menu:
+    
+        print(f'{k}.{mi_menu[k]}')
+    # print("1: Iniciar 🐱‍🏍")
+    # print("2: Iniciar juego nuevo🐱‍👤")
+    # print("3: Salir👌")}
+    print("-------------------------------------")
+    opt = input("ingrese la opcion de preferencia  ")
+    if opt=="1":
+        juego()
+    elif opt =="2":
+        juego()
+    elif opt=="3":
+        juego ()   
+    else:
+        print("Opcion no valida")
+        menu()
+
+menu()
 
