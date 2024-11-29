@@ -2,7 +2,6 @@ import board
 import movimiento as mv
 import os
 
-
 def limpiar_pantalla():
     os.system('cls' if os.name == 'nt' else 'clear')
 
@@ -178,11 +177,14 @@ def menu():
         '1' :'Iniciar',
         '2' : 'ver manual del juego ',
         '3' : 'salir',
+        '4' : 'selecciona nivel',
+        
         },
         'en':{
             '1' : 'start new game',
             '2' : 'show manual',
-            '3' : 'Exit'
+            '3' : 'Exit',
+            '4'  : 'select level',
             }
 
     }
@@ -201,6 +203,8 @@ def menu():
         juego()
     elif opt=="3":
         juego ()   
+    elif opt=="4":
+        juego ()  
     else:
         print("Opcion no valida")
         menu()

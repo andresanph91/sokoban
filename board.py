@@ -53,3 +53,5 @@ def leer_tablero(nivel):
 
 if __name__=='__main__':
     leer_tablero('nivel_1')
+    leer_tablero('nivel_2')
+    leer_tablero('nivel_3')

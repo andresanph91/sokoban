@@ -1,0 +1,10 @@
+#variables 
+s > SPACE
+r > ROBOT
+m > OBSTA
+
+#tablero
+msssssmmmm
+mssssssmmm
+mmmmsssssm
+mrssssssmm
