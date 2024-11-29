@@ -139,6 +139,13 @@ def leer_direccion():
 
 def juego():
     tab = board.leer_tablero("nivel_1") 
+    
+def juego():
+    tab = board.leer_tablero("nivel_2") 
+
+def juego():
+    tab = board.leer_tablero("nivel_3")  
+
     imprimir_tablero(tab)
     direccion = leer_direccion()
 
@@ -172,13 +179,12 @@ def manual(idioma):
 def menu():
     lang=input("indique el idioma(en/es): ")
     mi_menu={
-
-'es': {
-        '1' :'Iniciar',
-        '2' : 'ver manual del juego ',
-        '3' : 'salir',
-        '4' : 'selecciona nivel',
-        
+        'es': {
+            '1' :'Iniciar',
+            '2' : 'ver manual del juego ',
+            '3' : 'salir',
+            '4' : 'selecciona nivel',
+            
         },
         'en':{
             '1' : 'start new game',
@@ -189,6 +195,14 @@ def menu():
 
     }
     print("-------------------------------------")
+    nivel=input("indique el nivel: ")
+    menu_niveles={
+        'es': {
+            '1' : 'nivel_1',
+            '2' : 'nivel_2',
+            '3' : 'nivel_3',
+        }
+    }
     for k in mi_menu:
     
         print(f'{k}.{mi_menu[k]}')
